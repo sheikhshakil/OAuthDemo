@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DemoAPI.Controllers
+namespace Sample.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
