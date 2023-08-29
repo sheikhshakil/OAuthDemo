@@ -22,6 +22,14 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
         ValidateAudience = false // audience scope
     };
 });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("DefaultPolicy", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("scope", "default");
+    });
+});
 
 var app = builder.Build();
 
@@ -39,6 +47,6 @@ app.UseCors("allowedOrigins");
 app.UseAuthentication(); //added for authentication
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().RequireAuthorization("DefaultPolicy");
 
 app.Run();
