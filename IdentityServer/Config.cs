@@ -7,20 +7,20 @@ public static class Config
 {
     public static IEnumerable<IdentityResource> IdentityResources =>
         new IdentityResource[]
-        { 
+        {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile()
         };
 
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
-            { 
+            {
                 new ApiScope(name: "api-default", displayName: "Default API Scope")
             };
 
     public static IEnumerable<Client> Clients =>
-        new Client[] 
-            { 
+        new Client[]
+            {
                 new Client
                 {
                     ClientId = "client",
@@ -40,7 +40,7 @@ public static class Config
                     PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" }, //change to client url 
                     AllowedScopes = new List<string>
                     {
-                        IdentityServerConstants.StandardScopes.OpenId, 
+                        IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "api-default"
                     }

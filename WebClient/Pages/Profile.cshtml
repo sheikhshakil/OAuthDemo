@@ -62,5 +62,8 @@
             console.log(data);
             $('#user-claims-json').html(JSON.stringify(data, null, 2));
             }
-    });
+        
+    }).fail(() => {
+        $('#user-claims-json').html("invalid access token!");
+    })
 </script>
