@@ -6,10 +6,10 @@ JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultScheme = "Cookies";
+    options.DefaultScheme = "cookies";
     options.DefaultChallengeScheme = "oidc";
 })
-.AddCookie("Cookies")
+.AddCookie("cookies")
 .AddOpenIdConnect("oidc", options =>
 {
     options.Authority = "https://localhost:5001"; //auth server url
