@@ -7,7 +7,7 @@ namespace WebClient.Pages
     {
         public IActionResult OnGet()
         {
-            return SignOut("Cookies", "oidc");
+            return SignOut("cookies", "oidc");
         }
     }
 }

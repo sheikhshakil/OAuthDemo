@@ -15,7 +15,7 @@ public static class Config
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
             { 
-                new ApiScope(name: "default", displayName: "Default Scope")
+                new ApiScope(name: "api-default", displayName: "Default API Scope")
             };
 
     public static IEnumerable<Client> Clients =>
@@ -29,7 +29,7 @@ public static class Config
                     {
                         new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "default" }
+                    AllowedScopes = { "api-default" }
                 },
                 new Client
                 {
@@ -42,6 +42,7 @@ public static class Config
                     {
                         IdentityServerConstants.StandardScopes.OpenId, 
                         IdentityServerConstants.StandardScopes.Profile,
+                        "api-default"
                     }
                 }
             };

@@ -6,6 +6,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "allowedOrigins", policy =>
     {
         policy.WithOrigins("*");
+        policy.WithHeaders("*");
     });
 });
 
@@ -27,7 +28,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("DefaultPolicy", policy =>
     {
         policy.RequireAuthenticatedUser();
-        policy.RequireClaim("scope", "default");
+        policy.RequireClaim("scope", "api-default");
     });
 });
 

@@ -39,7 +39,7 @@ async Task RequestAccessToken(DiscoveryDocumentResponse doc)
         Address = doc.TokenEndpoint,
         ClientId = user.username,
         ClientSecret = user.password,
-        Scope = "default"
+        Scope = "api-default"
     });
 
     if (tokenResponse.IsError)
